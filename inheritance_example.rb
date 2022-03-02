@@ -57,3 +57,4 @@ p car.brake
 bike = Bike.new()
 bike.ring_bell
 p bike.brake
+bike.honk_horn
