@@ -5,15 +5,6 @@
   # loops all the employees
   # change their status to false
 
-# Bonus: What happens when you define a method in the Employee and Manager class with the same name? Read more about method overriding here: http://rubylearning.com/satishtalim/ruby_overriding_methods.html. Then try to use super on a method other than initialize!
-
-  # manager use the instance method in Manager class,
-  # employee use the instance method in Employee class.
-
-  # Able to override the method in super class(Manager class) from subclass (Employee class)
-
-  # If there is no overriding in the subclass, subclass use the method in the super class
-
 class Employee
   attr_reader :first_name, :last_name, :active
   attr_writer :active
@@ -76,7 +67,14 @@ employee1.give_annual_raise
 # manager.fire_all_employees
 
 
-# Bonus
+# Bonus: What happens when you define a method in the Employee and Manager class with the same name? Read more about method overriding here: http://rubylearning.com/satishtalim/ruby_overriding_methods.html. Then try to use super on a method other than initialize!
+
+  # manager use the instance method in Manager class,
+  # employee use the instance method in Employee class.
+
+  # Able to override the method in super class(Manager class) from subclass (Employee class)
+
+  # If there is no overriding in the subclass, subclass use the method in the super class
 
 # # https://www.javadrive.jp/ruby/inherit/index2.html
 # class Car
