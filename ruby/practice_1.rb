@@ -75,11 +75,46 @@
 
 # 10. Write a program that asks the user to enter a word, then prints "That's a long word" if the word has more than 5 letters.
 
-print "Enter a word: "
-wordLength = gets.chomp.length
+# print "Enter a word: "
+# wordLength = gets.chomp.length
 
-if wordLength > 5
-  puts "That's a long word"
-end
+# if wordLength > 5
+#   puts "That's a long word"
+# end
 
 # SOLUTIONS: https://gist.github.com/peterxjang/1539a3ad79728ba4fb68dd8d07279c29
+
+
+# Given an array, write a function that returns an array that contains the original array’s values in reverse.
+
+# Input: [1, 2, 3, 4, 5]
+# Output: [5, 4, 3, 2, 1]
+
+# write a method
+# while loop
+#  i => index
+#  i = -1
+# decrease the i in the while loop
+# write an array to store the all values
+
+# def reverse_array(nums)
+#   i = -1
+#   reversed_nums = []
+#   while i.abs < nums.length + 1
+#     reversed_nums << nums[i]
+#     i -= 1
+#   end
+#   return reversed_nums
+#   # return nums.reverse
+# end
+
+# nums = [1, 2, 3, 4, 5]
+# p reverse_array(nums)
+# nums = [5, 4, 3, 2, 1]
+# p reverse_array(nums)
+# nums = []
+# p reverse_array(nums)
+
+
+# p -1.abs
+# p -1001101094897539.abs

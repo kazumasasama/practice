@@ -61,3 +61,64 @@
 # end
 
 # p doubled_nums # => [2, 4, 6, 8, 10]
+
+
+
+# def is_palindrome(x)
+# 	string = x.to_s
+# 	if string == string.reverse
+# 		return true
+# 	end
+# 	return false
+# end
+
+# x = 121
+# p is_palindrome(x) # => true
+
+# x = -121
+# p is_palindrome(x) # => false
+
+# x = 10
+# p is_palindrome(x) # => false
+# FXSHRXW
+
+def title_to_number(column_title)
+	index = [*("A".."Z")]
+	index_hash = {}
+	j = 1
+	index.each do |i|
+		index_hash[i] = j
+		j += 1
+	end
+	title_array = column_title.split(//)
+	i = -1
+	total = 0
+	while i.abs <= title_array.length
+		if i == -1
+			total += index_hash[title_array[i]]
+		elsif i == -2
+			total += index_hash[title_array[i]] * 26
+		elsif i == -3
+			total += index_hash[title_array[i]] * (26 * 26)
+		elsif i == -4
+			total += index_hash[title_array[i]] * (26 * 26 * 26)
+		elsif i == -5
+			total += index_hash[title_array[i]] * (26 * 26 * 26 * 26)
+		elsif i == -6
+			total += index_hash[title_array[i]] * (26 * 26 * 26 * 26 * 26)
+		elsif i == -7
+			total += index_hash[title_array[i]] * (26 * 26 * 26 * 26 * 26 * 26)
+		end
+		i -= 1
+	end
+	return total
+end
+
+column_title = "A"
+p title_to_number(column_title) # => 1
+
+column_title = "AB"
+p title_to_number(column_title) # => 28
+
+column_title = "ZY"
+p title_to_number(column_title) # => 701
