@@ -242,13 +242,57 @@
 
 
 
-setTimeout(function() {
-  console.log('First task done!');
-  setTimeout(function() {
-    console.log('Second task done!');
-    setTimeout(function() {
-      console.log('Third task done!');
-    }, 2000);
-  }, 2000);
-}, 2000);
+// setTimeout(function() {
+//   console.log('First task done!');
+//   setTimeout(function() {
+//     console.log('Second task done!');
+//     setTimeout(function() {
+//       console.log('Third task done!');
+//     }, 2000);
+//   }, 2000);
+// }, 2000);
 
+// new Promise((resolve)=> {
+//   let loginInfo = {
+//     email: "aaa@aaa.com",
+//     password: "password"
+//   }
+//   setTimeout(()=> {console.log(loginInfo)}, 3000)
+//   resolve(loginInfo);
+// }).then(()=> {
+//   return new Promise((resolve) => {
+//     console.log('にゃん')
+//   })
+// })
+
+// function loginInfo() {
+//   let loginInfo = {
+//     email: "aaa@aaa.com",
+//     password: "password"
+//   }
+//   return loginInfo
+// }
+
+// async function createUser() {
+
+// }
+
+function myfunc() {
+  return new Promise((resolve, reject) => {
+    // 時間のかかる処理
+    // 正常終了なら resolve を呼ぶ
+    resolve(123)
+    // エラーの場合
+    // reject('Error!')
+  })
+}
+
+myfunc()
+  .then((value) => {
+    console.log('fulfilled')
+    console.log(value)
+  })
+  .catch((reason) => {
+    console.log('rejected')
+    console.log(reason)
+  })
