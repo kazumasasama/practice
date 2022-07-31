@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -13,12 +14,26 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 
-const pages = ['Home', 'About', 'Projects'];
+import moment from 'moment';
+import 'moment-timezone';
+
+const pages = ['Home', 'About', 'Projects', 'Contact'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-const ResponsiveAppBar = () => {
+function ResponsiveAppBar() {
+
+  const [currentTimeLocal, setCurrentTimeLocal] = React.useState(setInterval(() => {
+    setCurrentTimeLocal(moment().format('HH:mm:ss'));
+  }))
+  const [currentTimeNY, setCurrentTimeNY] = React.useState(setInterval(() => {
+    setCurrentTimeNY(moment().tz('America/New_York').format('HH:mm:ss'));
+  }))
+  const [currentTimeTOKYO, setCurrentTimeTOKYO] = React.useState(setInterval(() => {
+    setCurrentTimeTOKYO(moment().tz('Asia/Tokyo').format('HH:mm:ss'));
+  }))
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -34,6 +49,18 @@ const ResponsiveAppBar = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+  function Clock() {
+    return (
+      <div>
+        <ul>
+          <li>Local {currentTimeLocal}</li>
+          <li>New York {currentTimeNY}</li>
+          <li>Tokyo {currentTimeTOKYO}</li>
+        </ul>
+      </div>
+    )
+  }
 
   return (
     <AppBar position="static">
@@ -124,8 +151,8 @@ const ResponsiveAppBar = () => {
               </Button>
             ))}
           </Box>
-
-          <Box sx={{ flexGrow: 0 }}>
+          <Clock />
+          {/* <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
@@ -153,7 +180,7 @@ const ResponsiveAppBar = () => {
                 </MenuItem>
               ))}
             </Menu>
-          </Box>
+          </Box> */}
         </Toolbar>
       </Container>
     </AppBar>

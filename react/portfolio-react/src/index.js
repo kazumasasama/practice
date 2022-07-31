@@ -5,10 +5,6 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import ResponsiveAppBar from './navBar';
 
-function App() {
-  return (
-    <Button variant="contained">Hello World</Button>);
-}
 
 const darkTheme = createTheme({
   palette: {
@@ -16,26 +12,28 @@ const darkTheme = createTheme({
   },
 });
 
-class Root extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: "Kaz",
-    };
+function Root() {
+  const [myName, setMyName] = React.useState(null)
+
+  function handleNameChange(name) {
+    setMyName(name);
   }
 
-  render() {
-    return (
-      <div className="">
-        <ThemeProvider theme={darkTheme}>
-          <ResponsiveAppBar color="secondary" />
-          <App color="secondary"></App>
-          <button color="secondary">aaa</button>
-        </ThemeProvider>
-      </div>
-    );
-  }
-  
+  let name = 'kaz';
+  React.useEffect(() => {
+    handleNameChange(name);
+  })
+
+  return (
+    <div className="">
+      <ThemeProvider theme={darkTheme}>
+        <ResponsiveAppBar
+          color="secondary"
+        />
+        <p>{myName}</p>
+      </ThemeProvider>
+    </div>
+  );
 }
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
