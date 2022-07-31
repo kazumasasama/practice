@@ -30,3 +30,5 @@ window.confirm = () => {
   // return 'a' // booleanを返さない限りエラーになる
   return false
 }
+
+export {};
