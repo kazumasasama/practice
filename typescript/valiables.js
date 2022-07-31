@@ -18,15 +18,7 @@ function calc(isSum) {
 console.log(calc(true));
 var age = 36;
 // age = "36" // 違う型は代入できない
-// 配列
-var array = [];
-// array.push('Doraemon') // 配列に指定した型と合わない
-array.push(1); // OK
-// Union型
-var mixedArrayU = ['Doraemon', 1];
-// mixedArrayU.push(false) // 指定されてない型なのでエラー
-// タプル
-var mixedArrayT = ['Doraemon', 1];
+
 // ハッシュ
 var user = {
     name: "Nobita",
